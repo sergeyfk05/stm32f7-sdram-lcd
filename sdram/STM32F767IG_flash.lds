@@ -7,8 +7,9 @@ ENTRY(Reset_Handler)
 
 MEMORY
 {
-	FLASH (RX) : ORIGIN = 0x08000000, LENGTH = 1M
-	SRAM (RWX) : ORIGIN = 0x20000000, LENGTH = 512K
+	FLASH (RX)	: ORIGIN = 0x08000000, LENGTH = 1M
+	SRAM (RWX)	: ORIGIN = 0x20000000, LENGTH = 512K
+	SDRAM (xrw)	: ORIGIN = 0xD0000000, LENGTH = 8M
 }
 
 _estack = 0x20080000;
@@ -118,14 +119,20 @@ SECTIONS
 
 	PROVIDE(end = .);
 
-	.heap (NOLOAD) :
+	/*.heap (NOLOAD) :
 	{
 		. = ALIGN(4);
 		PROVIDE(__heap_start__ = .);
 		KEEP(*(.heap))
 		. = ALIGN(4);
 		PROVIDE(__heap_end__ = .);
-	} > SRAM
+	} > SRAM*/
+	/* User heap section */
+	._user_heap :
+	{
+	  PROVIDE ( _heap_min = . );
+	  PROVIDE ( _heap_max = _heap_min + LENGTH(SDRAM));
+	} >SDRAM
 
 	.reserved_for_stack (NOLOAD) :
 	{
