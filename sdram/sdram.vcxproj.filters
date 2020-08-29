@@ -37,10 +37,10 @@
     <Filter Include="VisualGDB settings">
       <UniqueIdentifier>{2d8a54b9-e975-4b9b-a0ff-528c128e1e1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header files\Device-specific files\Helpers">
+    <Filter Include="Header files\Device-specific files\Drivers">
       <UniqueIdentifier>{3e55152e-563f-4e35-821c-4ff82be572cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source files\Device-specific files\Helpers">
+    <Filter Include="Source files\Device-specific files\Drivers">
       <UniqueIdentifier>{3adb3795-bfba-4b02-88d1-7169b75fa0e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -708,19 +708,22 @@
     <None Include="stm32.xml">
       <Filter>VisualGDB settings</Filter>
     </None>
-    <ClCompile Include="SDRAMHelper.cpp">
-      <Filter>Source files\Device-specific files\Helpers</Filter>
+    <ClCompile Include="CoreDriver.cpp">
+      <Filter>Source files\Device-specific files\Drivers</Filter>
     </ClCompile>
-    <ClCompile Include="CoreHelper.cpp">
-      <Filter>Source files\Device-specific files\Helpers</Filter>
+    <ClCompile Include="SDRAMDriver.cpp">
+      <Filter>Source files\Device-specific files\Drivers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDRAMHelper.h">
-      <Filter>Header files\Device-specific files\Helpers</Filter>
+    <ClInclude Include="CoreDriver.h">
+      <Filter>Header files\Device-specific files\Drivers</Filter>
     </ClInclude>
-    <ClInclude Include="CoreHelper.h">
-      <Filter>Header files\Device-specific files\Helpers</Filter>
+    <ClInclude Include="SDRAMDriver.h">
+      <Filter>Header files\Device-specific files\Drivers</Filter>
+    </ClInclude>
+    <ClInclude Include="LCDDriver.h">
+      <Filter>Header files\Device-specific files\Drivers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

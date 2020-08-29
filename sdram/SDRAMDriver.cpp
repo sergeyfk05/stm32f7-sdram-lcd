@@ -1,8 +1,8 @@
-#include "SDRAMHelper.h"
+#include "SDRAMDriver.h"
 
-namespace Helpers
+namespace Drivers
 {
-	HAL_StatusTypeDef SDRAMHelper::GPIOInit()
+	HAL_StatusTypeDef SDRAMDriver::GPIOInit()
 	{
 		/** FMC GPIO Configuration  
 		PF0   ------> FMC_A0
@@ -105,7 +105,7 @@ namespace Helpers
 		return HAL_OK;
 	}
 	
-	HAL_StatusTypeDef SDRAMHelper::FMCInit()
+	HAL_StatusTypeDef SDRAMDriver::FMCInit()
 	{
 		FMC_SDRAM_TimingTypeDef SdramTiming = { 0 };
 		
@@ -137,7 +137,7 @@ namespace Helpers
 		return HAL_SDRAM_Init(&hsdram, &SdramTiming);
 	}
 	
-	HAL_StatusTypeDef SDRAMHelper::SDRAMWakeUp()
+	HAL_StatusTypeDef SDRAMDriver::SDRAMWakeUp()
 	{
 		HAL_StatusTypeDef status;
 		FMC_SDRAM_CommandTypeDef command;
@@ -201,7 +201,7 @@ namespace Helpers
 		return HAL_OK;
 	}
 	
-	HAL_StatusTypeDef SDRAMHelper::SDRAMInit()
+	HAL_StatusTypeDef SDRAMDriver::SDRAMInit()
 	{
 		HAL_StatusTypeDef status;
 		
@@ -224,7 +224,7 @@ namespace Helpers
 	}
 	
 #ifdef DEBUG
-	HAL_StatusTypeDef SDRAMHelper::SDRAMTest()
+	HAL_StatusTypeDef SDRAMDriver::SDRAMTest()
 	{
 		uint32_t counter = 0;
   

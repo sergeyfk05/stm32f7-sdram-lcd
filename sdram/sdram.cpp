@@ -1,12 +1,12 @@
 #include <stm32f7xx_hal.h>
 #include <stm32_hal_legacy.h>
-#include <CoreHelper.h>
-#include <SDRAMHelper.h>
+#include <CoreDriver.h>
+#include <SDRAMDriver.h>
 #include <sys/stat.h>
 #include <errno.h>
 #include <stdlib.h>
 
-using namespace Helpers;
+using namespace Drivers;
 
 #ifdef __cplusplus
 extern "C"
@@ -43,18 +43,19 @@ extern "C"
 
 int main(void)
 {
-	CoreHelper::MPU_Config();
+	CoreDriver::MPU_Config();
 	SCB_EnableICache();
 	SCB_EnableDCache();
 	
 	HAL_Init();
 	
-	CoreHelper::SystemClock_Config();
+	CoreDriver::SystemClock_Config();
 	
-	HAL_StatusTypeDef status = SDRAMHelper::SDRAMInit();
+	HAL_StatusTypeDef status = SDRAMDriver::SDRAMInit();
+	status = SDRAMDriver::SDRAMTest();
 	
 	while (1)
 	{
-		
+		status = SDRAMDriver::SDRAMTest();
 	}
 }

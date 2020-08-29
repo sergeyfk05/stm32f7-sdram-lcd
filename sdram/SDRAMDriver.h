@@ -17,9 +17,9 @@
 #define SDRAM_SIZE 0x800000
 
 
-namespace Helpers
+namespace Drivers
 {
-	class SDRAMHelper
+	class SDRAMDriver
 	{
 	public:
 		static HAL_StatusTypeDef SDRAMInit();
@@ -30,7 +30,7 @@ namespace Helpers
 		
 		
 	private:
-		SDRAMHelper() { }
+		SDRAMDriver() {}
 		static HAL_StatusTypeDef GPIOInit();
 		static HAL_StatusTypeDef FMCInit();
 		static HAL_StatusTypeDef SDRAMWakeUp();

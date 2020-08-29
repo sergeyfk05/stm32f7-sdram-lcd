@@ -1,8 +1,8 @@
-#include "CoreHelper.h"
+#include "CoreDriver.h"
 
-namespace Helpers
+namespace Drivers
 {
-	void CoreHelper::SystemClock_Config()
+	void CoreDriver::SystemClock_Config()
 	{
 		//200MHz
 		
@@ -38,7 +38,7 @@ namespace Helpers
 		HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
 	}
 	
-	void CoreHelper::MPU_Config()
+	void CoreDriver::MPU_Config()
 	{
 		MPU_Region_InitTypeDef MPU_InitStruct = { 0 };
 
